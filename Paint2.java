@@ -10,7 +10,8 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class Paint2 extends Frame implements MouseListener, MouseMotionListener {
-    int x, y,count;
+    int x, y;
+    int count=1;
     ArrayList<Figure> objList;
     Figure obj;
     public static void main(String[] args) {
@@ -40,13 +41,14 @@ public class Paint2 extends Frame implements MouseListener, MouseMotionListener 
     public void mousePressed(MouseEvent e) {
         x = e.getX();
         y = e.getY();
-        obj=new Circle();
+        obj=new Circle(count);
         obj.moveto(x,y);
         repaint();
         System.out.println(objList.size()+1);
         if(objList.size()>=30) {
-        	objList.set(objList.size()%30, obj);
+        	objList.remove(0);
         }
+        count++;
     }
     public void mouseReleased(MouseEvent e) {
         x=e.getX();
