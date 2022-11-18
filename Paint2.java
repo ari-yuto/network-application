@@ -14,7 +14,9 @@ public class Paint2 extends Frame implements MouseListener, MouseMotionListener 
     int count=1;
     ArrayList<Figure> objList;
     Figure obj;
+    static int rang;
     public static void main(String[] args) {
+    	rang = Integer.parseInt(args[0]);
         Paint2 f = new Paint2();
         f.setSize(640, 480);
         f.setTitle("Paint Sample");
@@ -44,8 +46,8 @@ public class Paint2 extends Frame implements MouseListener, MouseMotionListener 
         obj=new Circle(count);
         obj.moveto(x,y);
         repaint();
-        System.out.println(objList.size()+1);
-        if(objList.size()>=30) {
+        System.out.println(count);
+		if(objList.size()>=rang) {
         	objList.remove(0);
         }
         count++;

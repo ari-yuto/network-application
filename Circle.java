@@ -14,22 +14,22 @@ public class Circle extends Figure{
 		count=size;
 	}
 	@Override public void paint(Graphics g) {
-		if(count%3==0) {
+		if(count%3==1) {
 			g.setColor(color);
 			g.drawOval(x-this.size/2, y-this.size/2, this.size, this.size);
-			if(count%6==0) {
+			if(count%6==1) {
 				g.fillOval(x-this.size/2, y-this.size/2, this.size, this.size);
 			}
 		}
-		else if(count%3==1){
+		else if(count%3==2){
 			g.setColor(color);
-			g.drawLine(x+25,y+25,x-25,y-25);
-			g.drawLine(x-25,y+25,x+25,y-25);
+			g.drawLine(x+size/2,y+size/2,x-size/2,y-size/2);
+			g.drawLine(x-size/2,y+size/2,x+size/2,y-size/2);
 		}
 		else {
 			g.setColor(color);
 			g.drawRect(x, y, this.size, this.size);
-			if(count%6==2) {
+			if(count%6==0) {
 				g.fillRect(x, y, this.size, this.size);
 			}
 		}
